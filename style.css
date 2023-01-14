@@ -1,3 +1,51 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: 0;
+}
 h1 {
-    background: coral;
+    color: #9b7716;
+    text-align: center;
+    background: #f3df6d;
+    margin: 20px;
+    font-size: 40px;
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 20px;
+    border-width: 1px;
+    border: 2px dotted #9b7716;
+}
+p {
+    text-align: justify;
+    width: 50%;
+    margin: 0 auto;
+}
+
+h3{
+    text-align: center;
+}
+h3:hover {
+    text-align: center;
+    color: blue;
+}
+figcaption {
+    text-align: center;
+    padding-top: 15px;
+} 
+figcaption:hover {
+    color: green;
+}
+progress, audio {
+    margin: 5px auto;
+    display: block;
+}
+form {
+    text-align: center;
+}
+img {
+    width: 70%;
+    margin: 5px auto;
+    display: block;
+    border-radius: 40%;
+    border: 5px double #3a3a04;
+    margin-top: 50px;
 }
