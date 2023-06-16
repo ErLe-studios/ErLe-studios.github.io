@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Uhodni číslo</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: Arial, sans-serif;
+    }
+  </style>
+</head>
+<body>
+  <h1>Uhodni číslo</h1>
+  
+  <p>Myslím si číslo mezi 1 a 100. Máš 10 pokusů, abys ho uhodl.</p>
+  
+  <input type="number" id="guessInput" placeholder="Zadej číslo" min="1" max="100">
+  <button onclick="checkGuess()">Uhodnout</button>
+  
+  <p id="result"></p>
+  
+  <script>
+    var secretNumber = Math.floor(Math.random() * 100) + 1;
+    var remainingGuesses = 10;
+    
+    function checkGuess() {
+      var guess = parseInt(document.getElementById('guessInput').value);
+      var resultElement = document.getElementById('result');
+      
+      if (isNaN(guess) || guess < 1 || guess > 100) {
+        resultElement.textContent = 'Zadej platné číslo mezi 1 a 100.';
+        return;
+      }
+      
+      remainingGuesses--;
+      
+      if (guess === secretNumber) {
+        resultElement.textContent = 'Gratuluji! Uhodl(a) jsi číslo ' + secretNumber + '!';
+        disableInputAndButton();
+      } else if (remainingGuesses === 0) {
+        resultElement.textContent = 'Bohužel, vyčerpal(a) jsi všechny pokusy. Číslo bylo ' + secretNumber + '.';
+        disableInputAndButton();
+      } else if (guess < secretNumber) {
+        resultElement.textContent = 'Zkus vyšší číslo. Zbývá ti ' + remainingGuesses + ' pokusů.';
+      } else {
+        resultElement.textContent = 'Zkus nižší číslo. Zbývá ti ' + remainingGuesses + ' pokusů.';
+      }
+    }
+    
+    function disableInputAndButton() {
+      document.getElementById('guessInput').disabled = true;
+      document.getElementsByTagName('button')[0].disabled = true;
+    }
+  </script>
+</body>
+</html>
